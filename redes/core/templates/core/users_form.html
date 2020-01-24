@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Django Ajax CRUD REspuesta 1{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1><img src="https://www.snapchat.com/static/style-guide/images/ghost/ghost.svg" alt="" style="width: 4rem;"> Snapchat Inc </h1>
+    <div class="row">
+      <div class="col-md-8 ">
+        <h3>Agregar Usuario</h3>
+        <form method="POST"> 
+          <div class="form-group">
+            {% csrf_token %}
+            {{form.as_table}}
+      
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary btn-flat">Aceptar</button>
+        </form>
+      </div>
+      
+{% endblock %}

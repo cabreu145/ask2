@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Django Ajax CRUD REspuesta 1{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1><img src="https://www.snapchat.com/static/style-guide/images/ghost/ghost.svg" alt="" style="width: 4rem;"> Snapchat Inc </h1>
+    <div class="row">
+      <div class="col-md-8 ">
+        <a href="{% url 'home'%}"> Agregar Usuario</a>
+        
+        <div class="container mb-4">
+            <table class="table table-striped">
+                <tr>
+                  <th>Nombre(s)</th>
+                  <th>Apelliedo Paterno</th>
+                  <th>Apelliedo Materno</th>
+                  <th>Fecha Nacimiento</th>
+                  <th>Correo</th>
+                  <th>Usuario</th>
+                  <th>Contraseña</th>
+                </tr>
+                {% if users %}
+                {% for user in users %}
+                <tr id="user-{{user.id}}">
+                    <td class="userName userData" name="name">{{user.nombres}}</td>
+                    <td class="userAddress userData" name="address">{{user.apellido_Paterno}}</td>
+                    <td class="userAge userData" name="age">{{user.apellido_Materno}}</td>
+                    <td class="userAge userData" name="age">{{user.fecha_nacimiento}}</td>
+                    <td class="userAge userData" name="age">{{user.correo}}</td>
+                    <td class="userAge userData" name="age">{{user.usuario}}</td>
+                    <td class="userAge userData" name="age">{{user.password}}</td>
+                    
+                </tr>
+                {% endfor %}
+                {% else %}
+                  No existen Usuarios
+                {% endif %}
+        </div>
+      </div>
+      
+{% endblock %}
